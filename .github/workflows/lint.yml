@@ -26,6 +26,7 @@ jobs:
           node-version: 16
 
       - run: yarn
+      - run: java --version
       - run: echo $PWD
       - run: yarn
 
