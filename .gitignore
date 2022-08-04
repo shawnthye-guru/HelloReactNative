@@ -60,4 +60,4 @@ buck-out/
 
 # Ruby / CocoaPods
 /ios/Pods/
-/vendor/bundle/
+.bundle/vendor/bundle/
