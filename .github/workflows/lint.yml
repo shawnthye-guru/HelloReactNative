@@ -1,0 +1,34 @@
+name: Lints
+
+on:
+  push:
+    branches:
+      - master
+      - development
+    tags:
+      - v*.*.*
+  pull_request:
+
+jobs:
+  build:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      TERM: dumb
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - run: yarn
+
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     node-version: '16'
+      #     cache: 'npm'
+      #     cache-dependency-path: script/validate-data/package-lock.json
