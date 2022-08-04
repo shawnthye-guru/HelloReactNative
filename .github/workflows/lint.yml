@@ -26,7 +26,6 @@ jobs:
           node-version: 16
 
       - run: yarn
-      - run: yarn
 
       # - uses: actions/setup-node@v3
       #   with:
