@@ -16,19 +16,14 @@ env:
 
 jobs:
   eslint:
-    permissions:
-      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 5
-
     steps:
       - uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16.16.0
-
-      - run: echo $PWD
 
       - name: Bootstrapping
         run: ./.github/scripts/bootstrap.sh
@@ -36,8 +31,6 @@ jobs:
       - name: ESLint
         run: ./.github/scripts/lint.sh
   typescript:
-    permissions:
-      contents: read
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
@@ -46,6 +39,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16.16.0
+
+      - name: Bootstrapping
+        run: ./.github/scripts/bootstrap.sh
 
       - name: Check Types
         run: yarn check-type
