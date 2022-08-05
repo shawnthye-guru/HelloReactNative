@@ -28,9 +28,9 @@ jobs:
           node-version: 16.16.0
 
       - name: Bootstrapping
-        run: ./.github/scripts/lint.sh
+        run: ./.github/scripts/boostrap.sh
 
-      - name: eslint
+      - name: ESLint
         run: ./.github/scripts/lint.sh
   typescript:
     permissions:
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - name: tsc
+      - name: Check Types
         run: yarn check-type
     
     
