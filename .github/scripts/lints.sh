@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-yarn
+yarn lint
