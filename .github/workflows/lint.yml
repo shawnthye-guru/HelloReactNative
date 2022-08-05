@@ -23,15 +23,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-node@v3
         with:
           node-version: 16.16.0
-          
+
       - run: echo $PWD
-        
+
       - name: Bootstrapping
-        run: ./.github/scripts/boostrap.sh
+        run: ./.github/scripts/bootstrap.sh
 
       - name: ESLint
         run: ./.github/scripts/lint.sh
