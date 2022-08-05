@@ -2,19 +2,21 @@ name: Lints
 
 on:
   push:
-    branches:
-      - master
-      - development
+    branches: [ $default-branch ]
     tags:
       - v*.*.*
   pull_request:
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
-  build:
+  eslint:
     permissions:
       contents: read
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 5
     env:
       TERM: dumb
 
@@ -23,15 +25,25 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 16.16.0
 
-      - run: yarn
-      - run: java --version
-      - run: echo $PWD
-      - run: yarn
+      - name: Bootstrapping
+        run: ./.github/scripts/lint.sh
 
-      # - uses: actions/setup-node@v3
-      #   with:
-      #     node-version: '16'
-      #     cache: 'npm'
-      #     cache-dependency-path: script/validate-data/package-lock.json
+      - name: eslint
+        run: ./.github/scripts/lint.sh
+  typescript:
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: tsc
+        run: yarn check-type
+    
+    
+    # - uses: actions/setup-node@v3
+    #   with:
+    #     node-version: '16'
+    #     cache: 'npm'
+    #     cache-dependency-path: script/validate-data/package-lock.json
