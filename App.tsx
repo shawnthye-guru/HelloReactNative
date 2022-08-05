@@ -27,13 +27,6 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-/**
- * To test error ts error on CI
- */
-const Hello: React.FC<{name: string}> = () => {
-  return null;
-};
-
 const Section: React.FC<
   PropsWithChildren<{
     title: string;
@@ -95,7 +88,6 @@ const App = () => {
           <Section title="Learn More">
             Read the docs to discover what to do next:
           </Section>
-          <Hello />
           <LearnMoreLinks />
         </View>
       </ScrollView>
