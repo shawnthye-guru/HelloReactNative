@@ -1,5 +1,5 @@
 {
-  "name": "HelloReactNative",
+  "name": "hello-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "tsc": "tsc",
+    "prepare": "node ./node_modules/mobile-scripts/scripts/prepare.js"
   },
   "dependencies": {
     "react": "18.0.0",
@@ -27,6 +29,7 @@
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.70.3",
+    "mobile-scripts": "git+ssh://git@github.com:propertyguru/mobile-scripts.git#v1.0.1",
     "react-test-renderer": "18.0.0",
     "typescript": "^4.4.4"
   },
